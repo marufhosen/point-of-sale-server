@@ -1,10 +1,10 @@
 var admin = require("firebase-admin");
 require("dotenv").config();
 
+// var serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+
 admin.initializeApp({
-  credential: admin.credential.cert(
-    "../pos-app-319-firebase-adminsdk-u7jjg-c8b3d3d493.json"
-  ),
+  credential: admin.credential.cert(process.env.FIREBASE_SERVICE_ACCOUNT),
 });
 
 async function verifyToken(req, res, next) {
